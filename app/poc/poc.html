@@ -1,0 +1,97 @@
+<div class="poc well">
+    <h1 class="md-headline">{{::('APP_TITLE' | translate)}}</h1>
+    <div class="md-caption">{{::('ONE_APP_PER_HOUSE' | translate)}}</div>
+    <div class="step-container">
+        <div layout="row" class="step-header">
+            <label class="step-label allcaps">{{::('STEP_1' | translate)}}</label>
+            <div flex class="step-help">{{::('STEP_1_HELP' | translate)}}</div>
+        </div>
+        <div class="person-container step-section-container" ng-repeat="child in vm.children">
+            <div layout="row">
+                <md-input-container>
+                    <label>{{::('FIRST_NAME' | translate)}}</label>
+                    <input ng-model="vm.children[$index].first_name" type="text" aria-label="First Name" required-"true"/>
+                </md-input-container>
+                <md-input-container id="middle-initial-container">
+                    <label>{{::('MIDDLE_INITIAL_ABBREV' | translate)}}</label>
+                    <input ng-model="vm.children[$index].middle_initial" type="text" aria-label="Middle Initial" maxlength="1" required="true"/>
+                </md-input-container>
+                <md-input-container>
+                    <label>{{::('LAST_NAME' | translate)}}</label>
+                    <input ng-model="vm.children[$index].last_name" type="text" aria-label="Last Name" required="true"/>
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="start center" class="radio-container">
+                <label>{{::('STUDENT' | translate)}}?</label>
+                <md-radio-group layout="row">
+                    <md-radio-button value="Yes" >
+                        {{::('YES' | translate)}}
+                    </md-radio-button>
+                    <md-radio-button value="No">
+                        {{::('NO' | translate)}}
+                    </md-radio-button>
+                </md-radio-group>
+            </div>
+            <div layout="row" layout-align="start center">
+                <md-checkbox aria-label="Foster Child" layout="row" layout-align="start center">
+                    {{::('FOSTER_CHILD' | translate)}}
+                </md-checkbox>
+                <md-checkbox aria-label="Homeless Migrant Runaway" layout="row" layout-align="start center">
+                    {{::('HOMELESS_MIGRANT_RUNAWAY' | translate)}}
+                </md-checkbox>
+            </div>
+        </div>
+        <div layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" aria-label="Add Another Child" ng-click="vm.addAnotherChild()">{{::('ADD_ANOTHER_CHILD' | translate)}}</md-button>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div class="step-container">
+        <div layout="row" class="step-header">
+            <label class="step-label allcaps">{{::('STEP_2' | translate)}}</label>
+            <div class="step-help" flex>
+                {{::('STEP_2_HELP' | translate)}}
+            </div>
+        </div>
+        <md-radio-group layout="row" class="step-section-container">
+            <md-radio-button value="Yes" >
+                {{::('YES' | translate)}}
+            </md-radio-button>
+            <md-radio-button value="No">
+                {{::('NO' | translate)}}
+            </md-radio-button>
+        </md-radio-group>
+    </div>
+    <md-divider></md-divider>
+    <div class="step-container">
+        <div layout="row" class="step-header">
+            <label class="step-label allcaps">{{::('STEP_3' | translate)}}</label>
+            <div class="step-help" flex>
+                {{::('STEP_3_HELP' | translate)}}
+            </div>
+        </div>
+        <div class="person-container step-section-container" ng-repeat="member in vm.member">
+            <div layout="row">
+                <md-input-container>
+                    <label>{{::('FIRST_NAME' | translate)}}</label>
+                    <input ng-model="vm.children[$index].first_name" type="text" aria-label="First Name" required-"true"/>
+                </md-input-container>
+                <md-input-container id="middle-initial-container">
+                    <label>{{::('MIDDLE_INITIAL_ABBREV' | translate)}}</label>
+                    <input ng-model="vm.children[$index].middle_initial" type="text" aria-label="Middle Initial" maxlength="1" required="true"/>
+                </md-input-container>
+                <md-input-container>
+                    <label>{{::('LAST_NAME' | translate)}}</label>
+                    <input ng-model="vm.children[$index].last_name" type="text" aria-label="Last Name" required="true"/>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" aria-label="Add Another Member" ng-click="vm.addAnotherMember()">{{::('ADD_ANOTHER_MEMBER' | translate)}}</md-button>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div layout="row" layout-align="end center">
+        <md-button aria-label="Submit" class="md-primary md-raised allcaps">Submit</md-button>
+    </div>
+</div>

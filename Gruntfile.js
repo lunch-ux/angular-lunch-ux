@@ -25,11 +25,24 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  grunt.loadNpmTasks('grunt-contrib-less');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
     yeoman: appConfig,
+    less: {
+      development: {
+        files: [{
+            expand: true,
+            cwd: '<%= yeoman.app %>/',
+            src: '**/*.less',
+            dest: '<%= yeoman.app %>/',
+            ext: '.css'
+        }]
+      }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -38,7 +51,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/**/*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -47,6 +60,10 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
+      },
+      less: {
+        files: ['<%= yeoman.app %>/**/*.less'],
+        tasks: ['less', 'newer:copy:styles', 'postcss']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -220,7 +237,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {

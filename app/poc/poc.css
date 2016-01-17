@@ -1,0 +1,41 @@
+.poc label.step-label {
+  width: 100px;
+  background-color: #333;
+  padding: 10px;
+  color: white;
+}
+.poc .step-help {
+  background-color: #666;
+  color: white;
+  padding: 10px;
+}
+.poc .step-container {
+  margin: 20px 0;
+}
+.poc .step-container .step-header {
+  margin-bottom: 20px;
+}
+.poc .step-container .step-section-container {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+.poc .person-container {
+  margin-bottom: 30px;
+}
+.poc .person-container md-input-container {
+  margin-right: 20px;
+}
+.poc .radio-container {
+  margin-bottom: 30px;
+}
+.poc .radio-container label {
+  margin-right: 20px;
+}
+.poc #middle-initial-container {
+  min-width: 40px;
+  width: 40px;
+}
+.poc md-divider {
+  margin: 40px 0 15px 0;
+}

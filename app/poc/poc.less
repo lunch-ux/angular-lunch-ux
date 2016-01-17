@@ -1,0 +1,45 @@
+@import "../styles/variables.less";
+
+.poc {
+    label.step-label {
+        width: 100px;
+        background-color: @gray-darkest;
+        padding: 10px;
+        color: white;
+    }
+    .step-help {
+        background-color: @gray-darker;
+        color: white;
+        padding: 10px;
+    }
+    .step-container {
+        margin: 20px 0;
+        .step-header {
+            margin-bottom: 20px;
+        }
+        .step-section-container {
+            padding: 10px;
+            border: 1px solid @gray-border;
+            border-radius: @border-radius;
+        }
+    }
+    .person-container {
+        margin-bottom: 30px;
+        md-input-container {
+            margin-right: 20px;
+        }
+    }
+    .radio-container {
+        label {
+            margin-right: 20px;
+        }
+        margin-bottom: 30px;
+    }
+    #middle-initial-container {
+        min-width: 40px;
+        width: 40px;
+    }
+    md-divider {
+        margin: 40px 0 15px 0;
+    }
+}
