@@ -1,6 +1,6 @@
 /**
- * @ngdoc function
- * @name lunchUxApp.factory:translationCustomLoaderFactory
+ * @ngdoc service
+ * @name lunchUxApp.component.translations.factory:translationCustomLoaderFactory
  * @description
  * # translationsCustomLoaderFactory
  * Translations Custom Loader service of the lunchUxApp
@@ -11,7 +11,6 @@
         .factory('translationsCustomLoaderFactory', translationsCustomLoaderFactory);
 
     /* @ngInject */
-
     function translationsCustomLoaderFactory($http, $q, translations) {
         // return loaderFn
         return function(options) {

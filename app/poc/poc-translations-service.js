@@ -1,8 +1,8 @@
 /**
- * @ngdoc function
- * @name lunchUxApp.factory:PocTranslationService
+ * @ngdoc service
+ * @name lunchUxApp.poc.factory:pocTranslationService
  * @description
- * # PocTranslationService
+ * # pocTranslationService
  * POC translation service of the lunchUxApp
  */
 (function() {
@@ -38,11 +38,20 @@
 
         return service;
 
+
+        /**
+         * @ngdoc method
+         * @name init
+         * @methodOf lunchUxApp.poc.factory:pocTranslationService
+         * @description
+         * Initializes the translations for the POC module
+         */
         function init() {
             _.forEach(service.translations, function(translations, key) {
                 translationService.addTranslations(translations, key);
             });
         }
+
     }
 
     pocTranslationsService.$inject = ['$translate', 'translationService'];

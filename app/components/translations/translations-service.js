@@ -1,6 +1,6 @@
 /**
- * @ngdoc function
- * @name lunchUxApp.factory:translationService
+ * @ngdoc service
+ * @name lunchUxApp.component.translations.factory:translationService
  * @description
  * # translationService
  * Translation service of the lunchUxApp
@@ -18,6 +18,16 @@
 
         return service;
 
+        /**
+         * @ngdoc method
+         * @name addTranslations
+         * @methodOf lunchUxApp.component.translations.factory:translationService
+         * @description
+         * Adds translations to the app
+         *
+         * @param {string} value The translations to add
+         * @param {string} key The key of the translations to add (e.g. en_US)
+         */
         function addTranslations(value, key) {
             //translations.STEP_1 = 'Step 1';
             translations[key] = _.merge(translations[key], value);

@@ -1,8 +1,8 @@
 /**
  * @ngdoc overview
- * @name lunchUxApp
+ * @name lunchUxApp.poc
  * @description
- * # lunchUxApp
+ * # lunchUxApp.poc
  *
  * Main module of the application.
  */

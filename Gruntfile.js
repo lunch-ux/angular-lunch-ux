@@ -22,13 +22,18 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'dist',
+    docs: 'docs'
   };
 
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-ngdocs');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+    ngdocs: {
+        all: ['<%= yeoman.app %>/**/*.js']
+    },
 
     // Project settings
     yeoman: appConfig,
@@ -52,7 +57,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/**/*.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+        tasks: ['newer:jshint:all', 'ngdocs', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -125,6 +130,16 @@ module.exports = function (grunt) {
               connect.static(appConfig.app)
             ];
           }
+        }
+      },
+      docs: {
+        options: {
+            port: 9000,
+            middleware: function(connect) {
+                return[
+                    connect.static(appConfig.docs)
+                ];
+            }
         }
       },
       dist: {
@@ -449,7 +464,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'postcss:server',
-      'connect:livereload',
+      'connect:' + (target === 'docs' ? 'docs' : 'livereload'),
       'watch'
     ]);
   });
@@ -470,6 +485,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngdocs',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

@@ -1,10 +1,10 @@
 /**
  * @ngdoc overview
- * @name lunchUxApp.translations
+ * @name lunchUxApp.component.translations
  * @description
- * # lunchUxApp.translations
+ * # lunchUxApp translations component module
  *
- * Translations module of the application.
+ * lunchUxApp translations module of the application.
  */
 (function() {
     'use strict';
